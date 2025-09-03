@@ -1,0 +1,7 @@
+/tests/ export-ignore
+/.dockerignore export-ignore
+/compose.yml export-ignore
+/Dockerfile export-ignore
+/Makefile export-ignore
+/phpunit.xml export-ignore
+/utils export-ignore

@@ -1,0 +1,10 @@
+services:
+  php-request-validator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-request-validator
+    volumes:
+    - .:/app
+    - /app/vendor
+    working_dir: /app
