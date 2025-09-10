@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Garpor\PhpRequestValidator\constraints;
 
-readonly class GreaterThan implements \Garpor\PhpRequestValidator\ConstraintInterface
+use Garpor\PhpRequestValidator\ConstraintInterface;
+
+
+class GreaterThan implements ConstraintInterface
 {
 	public function __construct(
 		public int     $value,
