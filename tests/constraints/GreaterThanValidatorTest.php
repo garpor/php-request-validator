@@ -36,10 +36,9 @@ final class GreaterThanValidatorTest extends TestCase
 	#[DataProvider('provideValidValues')]
 	public function testValidateReturnsNullForValidValues(mixed $value, int $limit): void
 	{
-		$validator = new GreaterThanValidator();
 		$constraint = new GreaterThan($limit);
 
-		$result = $validator->validate($value, $constraint);
+		$result = $this->validator->validate($value, $constraint);
 
 		self::assertNull($result);
 	}
@@ -56,10 +55,9 @@ final class GreaterThanValidatorTest extends TestCase
 	#[DataProvider('provideInvalidValues')]
 	public function testValidateReturnsErrorForInvalidValues(mixed $value, int $limit, string $expectedMessage, string $expectedCode): void
 	{
-		$validator = new GreaterThanValidator();
 		$constraint = new GreaterThan($limit);
 
-		$result = $validator->validate($value, $constraint);
+		$result = $this->validator->validate($value, $constraint);
 
 		self::assertIsArray($result);
 		self::assertCount(1, $result);
@@ -83,14 +81,12 @@ final class GreaterThanValidatorTest extends TestCase
 
 	public function testValidateUsesCustomMessageAndCode(): void
 	{
-		$validator = new GreaterThanValidator();
-
 		$customMessage = 'Custom too low';
 		$customCode = 'custom.code';
 
 		$constraint = new GreaterThan(10, $customMessage, $customCode);
 
-		$result = $validator->validate(10, $constraint);
+		$result = $this->validator->validate(10, $constraint);
 
 		self::assertIsArray($result);
 		self::assertCount(1, $result);
