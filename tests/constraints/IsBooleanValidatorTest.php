@@ -9,6 +9,7 @@ use Garpor\PhpRequestValidator\constraints\IsBoolean;
 use Garpor\PhpRequestValidator\constraints\IsBooleanValidator;
 use Garpor\PhpRequestValidator\ValidatorError;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -33,9 +34,7 @@ final class IsBooleanValidatorTest extends TestCase
 		$this->validator->validate(true, $mockConstraint);
 	}
 
-	/**
-	 * @dataProvider provideValidValues
-	 */
+	#[DataProvider('provideValidValues')]
 	public function testValidateWithValidValues(mixed $value): void
 	{
 		$constraint = new IsBoolean();
@@ -57,9 +56,7 @@ final class IsBooleanValidatorTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider provideInvalidValues
-	 */
+	#[DataProvider('provideInvalidValues')]
 	public function testValidateWithInvalidValues(mixed $value): void
 	{
 		$constraint = new IsBoolean();
