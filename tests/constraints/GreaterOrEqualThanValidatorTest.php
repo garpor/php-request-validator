@@ -23,7 +23,7 @@ final class GreaterOrEqualThanValidatorTest extends TestCase
 		$this->validator = new GreaterOrEqualThanValidator();
 	}
 
-	public function testValidateThrowsWhenConstraintIsNotGreaterThan(): void
+	public function testValidateThrowsWhenConstraintIsNotGreaterOrEqualThan(): void
 	{
 		$this->expectException(InvalidArgumentException::class);
 		$this->expectExceptionMessage('Expected instance of GreaterOrEqualThan.');
